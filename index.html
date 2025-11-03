@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corsco Camera | Pet & Portrait Photography | Tucson, AZ</title>
+    <meta name="description" content="Professional pet and portrait photography in Southern Arizona. 5+ years experience capturing your precious moments. Portion of proceeds donated to animal welfare.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sage: #B4C7B5;
+            --sage-light: #D8E5D9;
+            --sage-dark: #8FAF91;
+            --lavender: #C9B8D9;
+            --lavender-light: #E6DFF0;
+            --purple-accent: #9B7EBD;
+            --cream: #FAF8F5;
+            --text-dark: #2C2C2C;
+            --text-muted: #6B6B6B;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--lavender-light) 100%);
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            font-family: 'Didot', 'Bodoni MT', serif;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1rem;
+            transition: color 0.3s;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--purple-accent);
+        }
+
+        .hero {
+            background: linear-gradient(to bottom, var(--lavender-light), var(--cream));
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            font-family: 'Didot', 'Bodoni MT', serif;
+            letter-spacing: 1px;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--purple-accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(155, 126, 189, 0.3);
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(143, 175, 145, 0.4);
+        }
+
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            font-family: 'Didot', 'Bodoni MT', serif;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: var(--sage-light);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid var(--purple-accent);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--purple-accent);
+        }
+
+        .booking-section {
+            background: linear-gradient(135deg, var(--sage-light) 0%, var(--lavender-light) 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--sage);
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            background: white;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--purple-accent);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: var(--purple-accent);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(155, 126, 189, 0.3);
+            font-family: 'Helvetica Neue', sans-serif;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: var(--sage-dark);
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .giving-back {
+            background: var(--lavender-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            font-size: 1.1rem;
+            border: 2px dashed var(--purple-accent);
+        }
+
+        .giving-back strong {
+            color: var(--purple-accent);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            aspect-ratio: 1;
+            background: var(--sage-light);
+        }
+
+        .success-message {
+            display: none;
+            background: var(--sage-light);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            border: 2px solid var(--sage-dark);
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">CORSCO CAMERA</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Corsco Camera</h1>
+            <p class="tagline">Pet & Portrait Photography in Southern Arizona</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: var(--text-muted);">
+                Capturing the joy, personality, and love of your furry friends and family
+            </p>
+            <a href="#booking" class="cta-button">Book Your Session</a>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Kaitlyn</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Hi! I'm Kaitlyn DeBough, the photographer behind Corsco Camera. Based in Tucson, Arizona, 
+                    I specialize in pet and portrait photography that captures the unique personality and spirit 
+                    of every subject.
+                </p>
+                <p>
+                    With over 5 years of professional photography experience, I've had the joy of working with 
+                    countless pets and their families. What started as a passion has blossomed into my life's work, 
+                    and I couldn't be more grateful to do what I love every single day.
+                </p>
+                <p>
+                    I work with professional-grade equipment to ensure every photo is crisp, beautiful, and 
+                    truly captures the moment. Whether it's the playful energy of a puppy, the gentle wisdom 
+                    of a senior pet, or a candid family moment, I'm here to preserve your memories.
+                </p>
+            </div>
+            <div>
+                <div class="highlight">
+                    <h3 style="margin-bottom: 1rem; color: var(--purple-accent);">What I Offer</h3>
+                    <ul style="list-style: none; line-height: 2;">
+                        <li>📸 Professional pet photography</li>
+                        <li>👥 Family & portrait sessions</li>
+                        <li>🎨 Creative, personalized shoots</li>
+                        <li>📍 Based in Tucson, AZ</li>
+                        <li>⚡ Professional equipment</li>
+                        <li>💚 5+ years experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="giving-back">
+            <strong>🐾 Giving Back</strong>
+            <p style="margin-top: 0.5rem;">
+                A portion of all proceeds is donated to local animal shelters and rescue organizations. 
+                When you book with Corsco Camera, you're helping animals in need!
+            </p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🐕</div>
+                <h3 class="feature-title">Pet Photography</h3>
+                <p>Capture your furry friend's personality and charm in stunning portraits</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👨‍👩‍👧‍👦</div>
+                <h3 class="feature-title">Family Sessions</h3>
+                <p>Beautiful family portraits that you'll treasure for generations</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💝</div>
+                <h3 class="feature-title">Special Moments</h3>
+                <p>Preserve life's precious moments with professional photography</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="section">
+        <h2 class="section-title">Book Your Session</h2>
+        <div class="booking-section">
+            <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem;">
+                Ready to capture some beautiful memories? Fill out the form below and I'll get back to you 
+                within 24-48 hours to discuss your session!
+            </p>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="session-type">Session Type *</label>
+                    <select id="session-type" name="session-type" required>
+                        <option value="">Select a session type...</option>
+                        <option value="pet">Pet Photography</option>
+                        <option value="family">Family Portrait</option>
+                        <option value="both">Pet & Family Together</option>
+                        <option value="other">Other (please specify in message)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date/Timeframe</label>
+                    <input type="text" id="date" name="date" placeholder="e.g., Next weekend, Early December">
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell me about your session *</label>
+                    <textarea id="message" name="message" required placeholder="Tell me about your pet(s), what you're looking for in a session, any special requests, etc."></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Inquiry</button>
+            </form>
+            <div id="successMessage" class="success-message">
+                <strong>Thank you for your inquiry!</strong>
+                <p style="margin-top: 0.5rem;">Please check your email client - it should have opened with your inquiry. 
+                Send the email and I'll get back to you within 24-48 hours!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <h3 style="margin-bottom: 1rem; font-family: 'Didot', serif; letter-spacing: 2px;">CORSCO CAMERA</h3>
+            <p>Pet & Portrait Photography | Tucson, Arizona</p>
+            <p style="margin-top: 1rem;">
+                📧 Email: <a href="mailto:debwhoa.k@gmail.com" style="color: var(--sage-light);">Contact for Inquiries</a>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                A portion of all proceeds donated to animal welfare organizations
+            </p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">
+                © 2024 Corsco Camera. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const sessionType = document.getElementById('session-type').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            
+            // Create email body
+            const emailBody = `
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Session Type: ${sessionType}
+Preferred Date: ${date}
+
+Message:
+${message}
+            `.trim();
+            
+            // Create mailto link
+            const mailtoLink = `mailto:debwhoa.k@gmail.com?subject=Photography Booking Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+            
+            // Optionally scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    </script>
+</body>
+</html>
