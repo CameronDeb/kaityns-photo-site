@@ -433,7 +433,7 @@
                 Ready to capture some beautiful memories? Fill out the form below and I'll get back to you 
                 within 24-48 hours to discuss your session!
             </p>
-            <form id="bookingForm">
+            <form id="bookingForm" action="https://formspree.io/f/xovpbeeb" method="POST">
                 <div class="form-group">
                     <label for="name">Your Name *</label>
                     <input type="text" id="name" name="name" required>
@@ -468,8 +468,7 @@
             </form>
             <div id="successMessage" class="success-message">
                 <strong>Thank you for your inquiry!</strong>
-                <p style="margin-top: 0.5rem;">Please check your email client - it should have opened with your inquiry. 
-                Send the email and I'll get back to you within 24-48 hours!</p>
+                <p style="margin-top: 0.5rem;">Your message has been sent successfully! I'll get back to you within 24-48 hours.</p>
             </div>
         </div>
     </section>
@@ -505,40 +504,14 @@
             });
         });
 
-        // Form submission handler
+        // Form submission handler - show success message after Formspree processes
         document.getElementById('bookingForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const sessionType = document.getElementById('session-type').value;
-            const date = document.getElementById('date').value;
-            const message = document.getElementById('message').value;
-            
-            // Create email body
-            const emailBody = `
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Session Type: ${sessionType}
-Preferred Date: ${date}
-
-Message:
-${message}
-            `.trim();
-            
-            // Create mailto link
-            const mailtoLink = `mailto:debwhoa.k@gmail.com?subject=Photography Booking Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            document.getElementById('successMessage').classList.add('show');
-            
-            // Optionally scroll to success message
-            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // Let Formspree handle the submission
+            // After form submits, show success message
+            setTimeout(function() {
+                document.getElementById('successMessage').classList.add('show');
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
         });
     </script>
 </body>
